@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import ReactDOM from "react-dom";
 import api from './api';
 
-import styles from '../css/styles.css';
+import styles from '../css/styles.module.css';
 
 const app = document.getElementById('app');
 
@@ -19,10 +19,11 @@ class PokemonItem extends Component {
 
   render() {
     const {pokemon, onRemove, className} = this.props;
-    const {pkdx_id: id, name} = pokemon;
+    const {url, name} = pokemon;
+    const id = url.match(/^http:\/\/pokeapi.co\/api\/v2\/pokemon\/(\d*)\//)[1];
     return (<li className={className}>
-              <img src={`http://pokeapi.co/media/img/${id}.png`} />
-              {name} {~~(Math.random() * 500)}
+              <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`} />
+              {name}
               <div onClick={() => onRemove(id)}>[X]</div>
             </li>);
   }

@@ -1,5 +1,5 @@
 const api = {
-  getList: () => fetch('http://pokeapi.co/api/v2/pokemon/&limit=10')
+  getList: () => fetch('http://pokeapi.co/api/v2/pokemon/')
     .then(r => r.json())
     .then(x => x.results)
 };
