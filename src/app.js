@@ -1,10 +1,10 @@
 import React, {Component} from "react";
 import ReactDOM from "react-dom";
-import api from './api';
+import api from './utils/api';
 
-import styles from '../css/styles.module.css';
+import styles from './styles/styles.module.css';
 
-const app = document.getElementById('app');
+const root = document.getElementById('root');
 
 class PokemonItem extends Component {
   shouldComponentUpdate(newProps) {
@@ -60,4 +60,4 @@ class PokemonList extends Component {
   }
 }
 
-ReactDOM.render(<PokemonList />, app);
+ReactDOM.render(<PokemonList />, root);
