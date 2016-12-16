@@ -16,14 +16,15 @@ class PokemonItem extends Component {
     }
     return true;
   }
-
+//
   render() {
     const {pokemon, onRemove, className} = this.props;
-    const {url, name} = pokemon;
+    const { url, name} = pokemon;
     const id = url.match(/^http:\/\/pokeapi.co\/api\/v2\/pokemon\/(\d*)\//)[1];
     return (<li className={className}>
+              {/* <img src={`http://pokeapi.co/media/img/${id}.png`} /> */}
               <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/${id}.png`} />
-              {name}
+              {name} {~~(Math.random()*500)}
               <div onClick={() => onRemove(id)}>[X]</div>
             </li>);
   }
